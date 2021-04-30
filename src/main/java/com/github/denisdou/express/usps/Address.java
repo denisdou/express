@@ -63,91 +63,47 @@ public class Address {
 
     public Address() {}
 
-    /**
-     * @param firmName company name
-     * @param address1 address1
-     * @param address2 address2
-     * @param city city
-     * @param state state
-     * @param urbanization urbanization
-     * @param zip5 zip5
-     * @param zip4 zip4
-     */
-    public Address(String firmName, String address1, String address2, String city, String state, String urbanization, String zip5, String zip4) {
-        this.firmName = firmName;
-        this.address1 = address1;
-        this.address2 = address2;
-        this.city = city;
-        this.state = state;
-        if(urbanization != null) {
-            this.urbanization = urbanization;
-        }
-        this.zip5 = zip5;
-        this.zip4 = zip4;
+    public Address(Builder builder) {
+        this.firmName = builder.firmName;
+        this.address1 = builder.address1;
+        this.address2 = builder.address2;
+        this.city = builder.city;
+        this.state = builder.state;
+        this.urbanization = builder.urbanization;
+        this.zip5 = builder.zip5;
+        this.zip4 = builder.zip4;
     }
 
     public String getFirmName() {
         return firmName;
     }
 
-    public void setFirmName(String firmName) {
-        this.firmName = trim(firmName);
-    }
-
     public String getAddress1() {
         return address1;
-    }
-
-    public void setAddress1(String address1) {
-        this.address1 = trim(address1);
     }
 
     public String getAddress2() {
         return address2;
     }
 
-    public void setAddress2(String address2) {
-        this.address2 = trim(address2);
-    }
-
     public String getCity() {
         return city;
-    }
-
-    public void setCity(String city) {
-        this.city = trim(city);
     }
 
     public String getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = trim(state);
-    }
-
     public String getUrbanization() {
         return urbanization;
-    }
-
-    public void setUrbanization(String urbanization) {
-        this.urbanization = trim(urbanization);
     }
 
     public String getZip5() {
         return zip5;
     }
 
-    public void setZip5(String zip5) {
-        this.zip5 = trim(zip5);
-    }
-
     public String getZip4() {
         return zip4;
-    }
-
-    public void setZip4(String zip4) {
-        this.zip4 = trim(zip4);
     }
 
     public String getDeliveryPoint() {
@@ -158,10 +114,117 @@ public class Address {
         return carrierRoute;
     }
 
+    public void setFirmName(String firmName) {
+        this.firmName = firmName;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setUrbanization(String urbanization) {
+        this.urbanization = urbanization;
+    }
+
+    public void setZip5(String zip5) {
+        this.zip5 = zip5;
+    }
+
+    public void setZip4(String zip4) {
+        this.zip4 = zip4;
+    }
+
+    public void setDeliveryPoint(String deliveryPoint) {
+        this.deliveryPoint = deliveryPoint;
+    }
+
+    public void setCarrierRoute(String carrierRoute) {
+        this.carrierRoute = carrierRoute;
+    }
+
     private String trim(String text) {
         if(text == null) {
             return "";
         }
         return text.trim().replaceAll("\\s+", " ");
+    }
+
+    public static class Builder {
+        private String firmName;
+        private String address1;
+        private String address2;
+        private String city;
+        private String state;
+        private String urbanization;
+        private String zip5;
+        private String zip4;
+        private String deliveryPoint;
+        private String carrierRoute;
+
+        public Builder setFirmName(String firmName) {
+            this.firmName = firmName;
+            return this;
+        }
+
+        public Builder setAddress1(String address1) {
+            this.address1 = address1;
+            return this;
+        }
+
+        public Builder setAddress2(String address2) {
+            this.address2 = address2;
+            return this;
+        }
+
+        public Builder setCity(String city) {
+            this.city = city;
+            return this;
+        }
+
+        public Builder setState(String state) {
+            this.state = state;
+            return this;
+        }
+
+        public Builder setUrbanization(String urbanization) {
+            this.urbanization = urbanization;
+            return this;
+        }
+
+        public Builder setZip5(String zip5) {
+            this.zip5 = zip5;
+            return this;
+        }
+
+        public Builder setZip4(String zip4) {
+            this.zip4 = zip4;
+            return this;
+        }
+
+        public Builder setDeliveryPoint(String deliveryPoint) {
+            this.deliveryPoint = deliveryPoint;
+            return this;
+        }
+
+        public Builder setCarrierRoute(String carrierRoute) {
+            this.carrierRoute = carrierRoute;
+            return this;
+        }
+
+        public Address build() {
+            return new Address(this);
+        }
     }
 }

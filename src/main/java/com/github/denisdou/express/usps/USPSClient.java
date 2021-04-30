@@ -170,49 +170,6 @@ public class USPSClient {
     }
 
     /**
-     * @param firmName company name
-     * @param address1 address1
-     * @param address2 address2
-     * @param city city
-     * @param state state
-     * @param urbanization urbanization
-     * @param zip5 zip5
-     * @param zip4 zip4
-     * @param deliveryPoint deliveryPoint
-     * @param carrierRoute carrierRoute
-     * @return Address
-     * @throws ExpressException ExpressException
-     */
-    public Address addressValidate(String firmName, String address1, String address2, String city, String state, String urbanization, String zip5, String zip4, boolean deliveryPoint, boolean carrierRoute) throws ExpressException {
-        return addressValidate(new Address(firmName, address1, address2, city, state, urbanization, zip5, zip4), deliveryPoint, carrierRoute);
-    }
-
-    /**
-     * @param firmName company name
-     * @param address1 address1
-     * @param address2 address2
-     * @param city city
-     * @param state state
-     * @param urbanization urbanization
-     * @param zip5 zip5
-     * @param zip4 zip4
-     * @return Address
-     * @throws ExpressException ExpressException
-     */
-    public Address addressValidate(String firmName, String address1, String address2, String city, String state, String urbanization, String zip5, String zip4) throws ExpressException {
-        return addressValidate(new Address(firmName, address1, address2, city, state, urbanization, zip5, zip4), false, false);
-    }
-
-    /**
-     * @param address address
-     * @return Address
-     * @throws ExpressException ExpressException
-     */
-    public Address addressValidate(Address address) throws ExpressException {
-        return addressValidate(address, false, false);
-    }
-
-    /**
      * @param address address
      * @param includeOptionalElements includeOptionalElements
      * @param returnCarrierRoute returnCarrierRoute
@@ -237,20 +194,6 @@ public class USPSClient {
         }catch (ExpressException e) {
             throw new ExpressException(e.getMessage());
         }
-    }
-
-    /**
-     * @param firmName company name
-     * @param address1 address1
-     * @param address2 address2
-     * @param city city
-     * @param state state
-     * @param urbanization urbanization
-     * @return Address
-     * @throws ExpressException ExpressException
-     */
-    public Address zipCodeLookup(String firmName, String address1, String address2, String city, String state, String urbanization) throws ExpressException {
-        return zipCodeLookup(new Address(firmName, address1, address2, city, state, urbanization, null, null));
     }
 
     /**

@@ -35,76 +35,106 @@ import javax.xml.bind.annotation.*;
         "firstClassMailType"})
 public class PackageRequest {
     @XmlAttribute(name = "ID")
-    private String id;
+    private final String id;
 
     @XmlElement(name = "Service")
-    private String service;
+    private final String service;
 
     @XmlElement(name = "FirstClassMailType")
-    private String firstClassMailType;
+    private final String firstClassMailType;
 
     @XmlElement(name = "ZipOrigination")
-    private String zipOrigination;
+    private final String zipOrigination;
 
     @XmlElement(name = "ZipDestination")
-    private String zipDestination;
+    private final String zipDestination;
 
     @XmlElement(name = "Pounds")
-    private String pounds;
+    private final String pounds;
 
     @XmlElement(name = "Ounces")
-    private String ounces;
+    private final String ounces;
 
     @XmlElement(name = "Container")
-    private String container;
+    private final String container;
 
     @XmlElement(name = "Size")
-    private String size;
+    private final String size;
 
     @XmlElement(name = "Width")
-    private String width;
+    private final String width;
 
     @XmlElement(name = "Length")
-    private String length;
+    private final String length;
 
     @XmlElement(name = "Height")
-    private String height;
+    private final String height;
 
     @XmlElement(name = "Girth")
-    private String girth;
+    private final String girth;
 
     @XmlElement(name = "Value")
-    private String value;
+    private final String value;
 
     @XmlElement(name = "AmountToCollect")
-    private String amountToCollect;
+    private final String amountToCollect;
 
     @XmlElement(name = "SpecialServices")
-    private SpecialService specialService;
+    private final SpecialService specialService;
 
     @XmlElement(name = "Content")
-    private Content content;
+    private final Content content;
 
     @XmlElement(name = "GroundOnly")
-    private String groundOnly;
+    private final String groundOnly;
 
     @XmlElement(name = "SortBy")
-    private String sortBy;
+    private final String sortBy;
 
     @XmlElement(name = "Machinable")
-    private String machinable;
+    private final String machinable;
 
     @XmlElement(name = "ReturnLocations")
-    private String returnLocations;
+    private final String returnLocations;
 
     @XmlElement(name = "ReturnServiceInfo")
-    private String returnServiceInfo;
+    private final String returnServiceInfo;
 
     @XmlElement(name = "DropOffTime")
-    private String dropOffTime;
+    private final String dropOffTime;
 
     @XmlElement(name = "ShipDate")
-    private ShipDate shipDate;
+    private final ShipDate shipDate;
+    public PackageRequest() {
+        this(new Builder());
+    }
+
+    public PackageRequest(Builder builder) {
+        this.id = builder.id;
+        this.service = builder.service;
+        this.firstClassMailType = builder.firstClassMailType;
+        this.zipOrigination = builder.zipOrigination;
+        this.zipDestination = builder.zipDestination;
+        this.pounds = builder.pounds;
+        this.ounces = builder.ounces;
+        this.container = builder.container;
+        this.size = builder.size;
+        this.width = builder.width;
+        this.length = builder.length;
+        this.height = builder.height;
+        this.girth = builder.girth;
+        this.value = builder.value;
+        this.amountToCollect = builder.amountToCollect;
+        this.specialService = builder.specialService;
+        this.content = builder.content;
+        this.groundOnly = builder.groundOnly;
+        this.sortBy = builder.sortBy;
+        this.machinable = builder.machinable;
+        this.returnLocations = builder.returnLocations;
+        this.returnServiceInfo = builder.returnServiceInfo;
+        this.dropOffTime = builder.dropOffTime;
+        this.shipDate = builder.shipDate;
+    }
 
     public String getId() {
         return id;
@@ -202,102 +232,6 @@ public class PackageRequest {
         return shipDate;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setService(String service) {
-        this.service = service;
-    }
-
-    public void setFirstClassMailType(String firstClassMailType) {
-        this.firstClassMailType = firstClassMailType;
-    }
-
-    public void setZipOrigination(String zipOrigination) {
-        this.zipOrigination = zipOrigination;
-    }
-
-    public void setZipDestination(String zipDestination) {
-        this.zipDestination = zipDestination;
-    }
-
-    public void setPounds(String pounds) {
-        this.pounds = pounds;
-    }
-
-    public void setOunces(String ounces) {
-        this.ounces = ounces;
-    }
-
-    public void setContainer(String container) {
-        this.container = container;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public void setWidth(String width) {
-        this.width = width;
-    }
-
-    public void setLength(String length) {
-        this.length = length;
-    }
-
-    public void setHeight(String height) {
-        this.height = height;
-    }
-
-    public void setGirth(String girth) {
-        this.girth = girth;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public void setAmountToCollect(String amountToCollect) {
-        this.amountToCollect = amountToCollect;
-    }
-
-    public void setSpecialServices(SpecialService specialService) {
-        this.specialService = specialService;
-    }
-
-    public void setContent(Content content) {
-        this.content = content;
-    }
-
-    public void setGroundOnly(String groundOnly) {
-        this.groundOnly = groundOnly;
-    }
-
-    public void setSortBy(String sortBy) {
-        this.sortBy = sortBy;
-    }
-
-    public void setMachinable(String machinable) {
-        this.machinable = machinable;
-    }
-
-    public void setReturnLocations(String returnLocations) {
-        this.returnLocations = returnLocations;
-    }
-
-    public void setReturnServiceInfo(String returnServiceInfo) {
-        this.returnServiceInfo = returnServiceInfo;
-    }
-
-    public void setDropOffTime(String dropOffTime) {
-        this.dropOffTime = dropOffTime;
-    }
-
-    public void setShipDate(String dateTime, String option) {
-        this.shipDate = new ShipDate(dateTime, option);
-    }
-
     @XmlRootElement(name = "ShipDate")
     public static class ShipDate {
         @XmlValue
@@ -311,6 +245,157 @@ public class PackageRequest {
         public ShipDate(String dateTime, String option) {
             this.value = dateTime;
             this.option = option;
+        }
+    }
+
+    public static class Builder {
+        private String id;
+        private String service;
+        private String firstClassMailType;
+        private String zipOrigination;
+        private String zipDestination;
+        private String pounds;
+        private String ounces;
+        private String container;
+        private String size;
+        private String width;
+        private String length;
+        private String height;
+        private String girth;
+        private String value;
+        private String amountToCollect;
+        private SpecialService specialService;
+        private Content content;
+        private String groundOnly;
+        private String sortBy;
+        private String machinable;
+        private String returnLocations;
+        private String returnServiceInfo;
+        private String dropOffTime;
+        private ShipDate shipDate;
+
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder service(String service) {
+            this.service = service;
+            return this;
+        }
+
+        public Builder firstClassMailType(String firstClassMailType) {
+            this.firstClassMailType = firstClassMailType;
+            return this;
+        }
+
+        public Builder zipOrigination(String zipOrigination) {
+            this.zipOrigination = zipOrigination;
+            return this;
+        }
+
+        public Builder zipDestination(String zipDestination) {
+            this.zipDestination = zipDestination;
+            return this;
+        }
+
+        public Builder pounds(String pounds) {
+            this.pounds = pounds;
+            return this;
+        }
+
+        public Builder ounces(String ounces) {
+            this.ounces = ounces;
+            return this;
+        }
+
+        public Builder container(String container) {
+            this.container = container;
+            return this;
+        }
+
+        public Builder size(String size) {
+            this.size = size;
+            return this;
+        }
+
+        public Builder width(String width) {
+            this.width = width;
+            return this;
+        }
+
+        public Builder length(String length) {
+            this.length = length;
+            return this;
+        }
+
+        public Builder height(String height) {
+            this.height = height;
+            return this;
+        }
+
+        public Builder girth(String girth) {
+            this.girth = girth;
+            return this;
+        }
+
+        public Builder value(String value) {
+            this.value = value;
+            return this;
+        }
+
+        public Builder amountToCollect(String amountToCollect) {
+            this.amountToCollect = amountToCollect;
+            return this;
+        }
+
+        public Builder specialServices(SpecialService specialService) {
+            this.specialService = specialService;
+            return this;
+        }
+
+        public Builder content(Content content) {
+            this.content = content;
+            return this;
+        }
+
+        public Builder groundOnly(String groundOnly) {
+            this.groundOnly = groundOnly;
+            return this;
+        }
+
+        public Builder sortBy(String sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
+
+        public Builder machinable(String machinable) {
+            this.machinable = machinable;
+            return this;
+        }
+
+        public Builder returnLocations(String returnLocations) {
+            this.returnLocations = returnLocations;
+            return this;
+        }
+
+        public Builder returnServiceInfo(String returnServiceInfo) {
+            this.returnServiceInfo = returnServiceInfo;
+            return this;
+        }
+
+        public Builder dropOffTime(String dropOffTime) {
+            this.dropOffTime = dropOffTime;
+            return this;
+        }
+
+        public Builder shipDate(String dateTime, String option) {
+            this.shipDate = new ShipDate(dateTime, option);
+            return this;
+        }
+
+        public PackageRequest build() {
+            return new PackageRequest(this);
         }
     }
 }
