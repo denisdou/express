@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "Package", propOrder = {
         "id",
         "service",
+        "firstClassMailType",
         "zipOrigination",
         "zipDestination",
         "pounds",
@@ -31,8 +32,7 @@ import javax.xml.bind.annotation.*;
         "returnLocations",
         "returnServiceInfo",
         "dropOffTime",
-        "shipDate",
-        "firstClassMailType"})
+        "shipDate"})
 public class PackageRequest {
     @XmlAttribute(name = "ID")
     private final String id;
