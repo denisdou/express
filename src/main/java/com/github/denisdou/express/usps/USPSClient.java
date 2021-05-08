@@ -156,16 +156,6 @@ public class USPSClient {
                 message = text.substring(beginIndex + 13, endIndex);
             }
             throw new ExpressException(message, code);
-        } else if(text.indexOf("<ReturnText>") != -1) {
-            int beginIndex;
-            int endIndex;
-            beginIndex = text.indexOf("<ReturnText>");
-            endIndex = text.indexOf("</ReturnText>");
-            String message = null;
-            if(beginIndex != -1 && endIndex != -1) {
-                message = text.substring(beginIndex + 12, endIndex);
-            }
-            throw new ExpressException(message);
         }
     }
 
@@ -248,8 +238,7 @@ public class USPSClient {
         trackFieldRequest.setUserId(userId);
 
         try{
-            TrackFieldResponse response = httpRequest("TrackV2", trackFieldRequest.toXml(TrackFieldRequest.class), TrackFieldResponse.class);
-            return response;
+            return httpRequest("TrackV2", trackFieldRequest.toXml(TrackFieldRequest.class), TrackFieldResponse.class);
         }catch (ExpressException e) {
             throw new ExpressException(e.getMessage(), e.getCode());
         } catch (Exception e) {
@@ -297,9 +286,30 @@ public class USPSClient {
         request.setPackages(packages);
 
         try{
-            RateV4Response response = httpRequest("RateV4", request.toXml(RateV4Request.class), RateV4Response.class);
-            return response;
+            return httpRequest("RateV4", request.toXml(RateV4Request.class), RateV4Response.class);
         }catch (ExpressException e) {
+            throw new ExpressException(e.getMessage(), e.getCode());
+        } catch (Exception e) {
+            throw new ExpressException(e.getMessage());
+        }
+    }
+
+    public FirstClassMailResponse firstClassMail(FirstClassMailRequest firstClassMailRequest) throws ExpressException {
+        firstClassMailRequest.setUserId(userId);
+        try{
+            return httpRequest("FirstClassMail", firstClassMailRequest.toXml(FirstClassMailRequest.class), FirstClassMailResponse.class);
+        } catch (ExpressException e) {
+            throw new ExpressException(e.getMessage(), e.getCode());
+        } catch (Exception e) {
+            throw new ExpressException(e.getMessage());
+        }
+    }
+
+    public PriorityMailResponse priorityMail(PriorityMailRequest priorityMailRequest) throws ExpressException {
+        priorityMailRequest.setUserId(userId);
+        try{
+            return httpRequest("PriorityMail", priorityMailRequest.toXml(PriorityMailRequest.class), PriorityMailResponse.class);
+        } catch (ExpressException e) {
             throw new ExpressException(e.getMessage(), e.getCode());
         } catch (Exception e) {
             throw new ExpressException(e.getMessage());

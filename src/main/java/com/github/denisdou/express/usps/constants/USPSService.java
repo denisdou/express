@@ -12,6 +12,7 @@ public class USPSService {
     public final static String SERVICE_PRIORITY_CPP = "PRIORITY CPP";
     public final static String SERVICE_PRIORITY_HFP_CPP = "PRIORITY HFP CPP";
     public final static String SERVICE_PRIORITY_HFP_COMMERCIAL = "PRIORITY HFP COMMERCIAL";
+    public final static String SERVICE_PRIORITY_MAIL = "PRIORITY MAIL";
     public final static String SERVICE_PRIORITY_MAIL_EXPRESS = "PRIORITY MAIL EXPRESS";
     public final static String SERVICE_PRIORITY_MAIL_EXPRESS_COMMERCIAL = "PRIORITY MAIL EXPRESS COMMERCIAL";
     public final static String SERVICE_PRIORITY_MAIL_EXPRESS_CPP = "PRIORITY MAIL EXPRESS CPP";
