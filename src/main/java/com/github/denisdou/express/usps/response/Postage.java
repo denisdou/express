@@ -9,7 +9,7 @@ import java.util.List;
  * @author 402550833@qq.com doujiajun
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"mailService", "rate","classId", "specialServices"})
+@XmlType(propOrder = {"mailService", "rate", "classId", "commercialPlusRate", "specialServices"})
 public class Postage {
     @XmlElement(name = "MailService")
     private String mailService;
@@ -17,6 +17,9 @@ public class Postage {
     private String rate;
     @XmlAttribute(name = "CLASSID")
     private String classId;
+
+    @XmlElement(name = "CommercialPlusRate")
+    private String commercialPlusRate;
 
     @XmlElements({ @XmlElement(name = "SpecialServices", type = SpecialService.class)})
     private List<SpecialService> specialServices;
@@ -51,5 +54,13 @@ public class Postage {
 
     public void setSpecialServices(List<SpecialService> specialServices) {
         this.specialServices = specialServices;
+    }
+
+    public String getCommercialPlusRate() {
+        return commercialPlusRate;
+    }
+
+    public void setCommercialPlusRate(String commercialPlusRate) {
+        this.commercialPlusRate = commercialPlusRate;
     }
 }

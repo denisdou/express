@@ -315,4 +315,15 @@ public class USPSClient {
             throw new ExpressException(e.getMessage());
         }
     }
+
+    public SDCGetLocationsResponse sdcGetLocations(SDCGetLocationsRequest sdcGetLocationsRequest) throws ExpressException {
+        sdcGetLocationsRequest.setUserId(userId);
+        try{
+            return httpRequest("SDCGetLocations", sdcGetLocationsRequest.toXml(PriorityMailRequest.class), SDCGetLocationsResponse.class);
+        } catch (ExpressException e) {
+            throw new ExpressException(e.getMessage(), e.getCode());
+        } catch (Exception e) {
+            throw new ExpressException(e.getMessage());
+        }
+    }
 }
