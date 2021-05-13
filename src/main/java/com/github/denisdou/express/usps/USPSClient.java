@@ -319,7 +319,21 @@ public class USPSClient {
     public SDCGetLocationsResponse sdcGetLocations(SDCGetLocationsRequest sdcGetLocationsRequest) throws ExpressException {
         sdcGetLocationsRequest.setUserId(userId);
         try{
-            return httpRequest("SDCGetLocations", sdcGetLocationsRequest.toXml(PriorityMailRequest.class), SDCGetLocationsResponse.class);
+            return httpRequest("SDCGetLocations", sdcGetLocationsRequest.toXml(SDCGetLocationsRequest.class), SDCGetLocationsResponse.class);
+        } catch (ExpressException e) {
+            throw new ExpressException(e.getMessage(), e.getCode());
+        } catch (Exception e) {
+            throw new ExpressException(e.getMessage());
+        }
+    }
+
+    public TrackResponse tracking(String trackId) throws ExpressException {
+        TrackRequest trackRequest = new TrackRequest();
+        trackRequest.setUserId(userId);
+        trackRequest.setTrackId(trackId);
+
+        try{
+            return httpRequest("TrackV2", trackRequest.toXml(TrackRequest.class), TrackResponse.class);
         } catch (ExpressException e) {
             throw new ExpressException(e.getMessage(), e.getCode());
         } catch (Exception e) {

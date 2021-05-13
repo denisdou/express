@@ -6,7 +6,7 @@ import java.util.List;
  * @author 402550833@qq.com doujiajun
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"id","expectedDeliveryDate","predictedDeliveryDate","status","statusCategory","statusSummary","trackSummary","trackDetailList"})
+@XmlType(name = "TrackFieldInfo", propOrder = {"id","expectedDeliveryDate","predictedDeliveryDate","status","statusCategory","statusSummary","trackSummary","trackDetailList"})
 public class TrackInfo {
     @XmlAttribute(name = "ID")
     private String id;

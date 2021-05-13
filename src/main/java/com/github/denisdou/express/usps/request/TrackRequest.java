@@ -9,6 +9,8 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "", propOrder = { "trackId" })
 @XmlRootElement(name = "TrackRequest")
 public class TrackRequest extends RequestAbstract {
+    @XmlAttribute(name = "USERID")
+    String userId;
     @XmlElement(name = "TrackID")
     private TrackId trackId;
 
@@ -21,9 +23,6 @@ public class TrackRequest extends RequestAbstract {
             this.id = id;
         }
     }
-
-    @XmlAttribute(name = "USERID")
-    String userId;
 
     public TrackId getTrackId() {
         return trackId;

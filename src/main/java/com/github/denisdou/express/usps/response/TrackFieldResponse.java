@@ -6,7 +6,7 @@ import java.util.List;
  * @author 402550833@qq.com doujiajun
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { "trackInfo" })
+@XmlType(name = "TrackFieldResponse", propOrder = { "trackInfo" })
 @XmlRootElement(name = "TrackFieldResponse")
 public class TrackFieldResponse {
 

@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.*;
  * @author 402550833@qq.com doujiajun
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TrackDetail", propOrder = {"eventTime","eventDate","event","eventCity","eventState","eventZipCode","eventCountry","firmName","name","authorizedAgent","eventCode","eventStatusCategory"})
+@XmlType(name = "TrackFieldDetail", propOrder = {"eventTime","eventDate","event","eventCity","eventState","eventZipCode","eventCountry","firmName","name","authorizedAgent","eventCode","eventStatusCategory"})
 public class TrackDetail {
     @XmlElement(name = "EventTime")
     private String eventTime;
